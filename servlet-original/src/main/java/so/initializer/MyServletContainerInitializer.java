@@ -13,9 +13,23 @@ import java.util.Set;
 @HandlesTypes(InitializerHandled.class)
 public class MyServletContainerInitializer implements ServletContainerInitializer {
 
-    @Override
-    public void onStartup(Set<Class<?>> c, ServletContext ctx) throws ServletException {
+    public MyServletContainerInitializer() {
+        System.out.println("constructor of ServletContainerInitializer is called! ");
+    }
 
+    @Override
+    public void onStartup(Set<Class<?>> initializerHandledClasses, ServletContext ctx) throws ServletException {
+
+        System.out.println("onStartup of ServletContainerInitializer is called! ");
+
+        try {
+            for (Class<?> classItem : initializerHandledClasses) {
+                InitializerHandled initializerHandled = (InitializerHandled) classItem.newInstance();
+                initializerHandled.onStartUp(ctx);
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }
