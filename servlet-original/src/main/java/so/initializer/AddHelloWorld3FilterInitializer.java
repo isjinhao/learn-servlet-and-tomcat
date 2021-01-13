@@ -21,7 +21,7 @@ public class AddHelloWorld3FilterInitializer implements InitializerHandled {
         FilterRegistration.Dynamic filterRegistration = servletContext.addFilter("helloWorld3Filter", new HelloWorld3Filter());
         filterRegistration.addMappingForServletNames(EnumSet.of(DispatcherType.REQUEST), false, "helloWorldServlet");
 
-        System.out.println("end to add hellochina to context!");
+        System.out.println("end to add helloworld3filter to context!");
 
     }
 

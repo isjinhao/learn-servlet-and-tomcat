@@ -43,6 +43,7 @@ public class HelloWorldAsyncServlet extends HttpServlet {
             asyncContext.complete();
         });
         System.out.println("async helloworld servlet finished");
+
     }
 
     public static void sleep() {

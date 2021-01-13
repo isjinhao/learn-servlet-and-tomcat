@@ -11,14 +11,18 @@ import javax.servlet.http.HttpSessionListener;
 @WebListener
 public class MyHttpSessionListener implements HttpSessionListener {
 
+    public MyHttpSessionListener() {
+        System.out.println("HttpSessionListener's constructor is called!");
+    }
+
     @Override
     public void sessionCreated(HttpSessionEvent se) {
-        System.out.println("session created : " + se.getSession());
+        System.out.println("HttpSessionListener  -->  session created : " + se.getSession());
     }
 
     @Override
     public void sessionDestroyed(HttpSessionEvent se) {
-        System.out.println("session destroyed : " + se.getSession());
+        System.out.println("HttpSessionListener  -->  session destroyed : " + se.getSession());
     }
 
 }

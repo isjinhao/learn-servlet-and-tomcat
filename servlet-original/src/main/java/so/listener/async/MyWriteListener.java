@@ -2,6 +2,7 @@ package so.listener.async;
 
 import javax.servlet.*;
 import java.io.IOException;
+import so.controller.async.HelloWorldAsyncServlet;
 
 /**
  * @Author ISJINHAO
@@ -17,9 +18,7 @@ public class MyWriteListener implements WriteListener {
 
     @Override
     public void onWritePossible() throws IOException {
-
         ServletResponse response = asyncContext.getResponse();
-        ServletRequest request = asyncContext.getRequest();
 
         ServletOutputStream outputStream = response.getOutputStream();
 

@@ -11,17 +11,21 @@ import javax.servlet.http.HttpSessionBindingEvent;
 @WebListener
 public class MyHttpSessionAttributeListener implements HttpSessionAttributeListener {
 
+    public MyHttpSessionAttributeListener() {
+        System.out.println("HttpSessionAttributeListener's constructor is called!");
+    }
+
     @Override
     public void attributeAdded(HttpSessionBindingEvent event) {
         String name = event.getName();
         Object attribute = event.getSession().getAttribute(name);
-        System.out.println("add session attribute, attribute name: " + name + " , attribute value: " + attribute);
+        System.out.println("HttpSessionAttributeListener  -->  add session attribute, attribute name: " + name + " , attribute value: " + attribute);
     }
 
     @Override
     public void attributeRemoved(HttpSessionBindingEvent event) {
         String name = event.getName();
-        System.out.println("remove session attribute, attribute name: " + name);
+        System.out.println("HttpSessionAttributeListener  -->  remove session attribute, attribute name: " + name);
     }
 
 }

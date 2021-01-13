@@ -13,10 +13,15 @@ import java.util.concurrent.TimeUnit;
  */
 @WebListener
 public class AppContextListener implements ServletContextListener {
+
+    public AppContextListener() {
+        System.out.println("ServletContextListener's constructor is called!");
+    }
+
     @Override
     public void contextInitialized(ServletContextEvent servletContextEvent) {
 
-        System.out.println("AppContextListener Initialize");
+        System.out.println("ServletContextListener  -->  AppContextListener Initialize");
         // create the thread pool
         ThreadPoolExecutor executorService =
                 new ThreadPoolExecutor(
@@ -31,7 +36,7 @@ public class AppContextListener implements ServletContextListener {
 
     @Override
     public void contextDestroyed(ServletContextEvent servletContextEvent) {
-        System.out.println("AppContextListener destroy");
+        System.out.println("ServletContextListener  -->  AppContextListener destroy");
         ThreadPoolExecutor executor = (ThreadPoolExecutor) servletContextEvent
                 .getServletContext().getAttribute("executor");
         executor.shutdown();

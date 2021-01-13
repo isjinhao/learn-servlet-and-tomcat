@@ -11,14 +11,19 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class MyServletRequestListener implements ServletRequestListener {
 
+    public MyServletRequestListener() {
+        System.out.println("ServletRequestListener's constructor is called!");
+
+    }
+
     @Override
     public void requestInitialized(ServletRequestEvent sre) {
-        System.out.println("request initialized : " + sre.getServletRequest());
+        System.out.println("ServletRequestListener  -->  request initialized : " + sre.getServletRequest());
     }
 
     @Override
     public void requestDestroyed(ServletRequestEvent sre) {
-        System.out.println("request destroyed : " + sre.getServletContext());
+        System.out.println("ServletRequestListener  -->  request destroyed : " + sre.getServletContext());
     }
 
 }

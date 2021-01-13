@@ -1,5 +1,6 @@
 package so.controller.classtest;
 
+import javax.servlet.ServletConfig;
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebInitParam;
@@ -15,7 +16,6 @@ import java.util.Enumeration;
  * @Date 2021/1/12 9:19
  */
 @WebServlet(urlPatterns = "/test/servletContext")
-@WebInitParam(name = "annotation-init-param", value = "wca")
 public class ServletContextServlet extends HttpServlet {
 
     @Override
@@ -27,6 +27,7 @@ public class ServletContextServlet extends HttpServlet {
             String initParameterName = initParameterNames.nextElement();
             System.out.println(initParameterName + " " + servletContext.getInitParameter(initParameterName));
         }
+
     }
 
 }

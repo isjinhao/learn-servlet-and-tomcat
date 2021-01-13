@@ -11,17 +11,21 @@ import javax.servlet.annotation.WebListener;
 @WebListener
 public class MyServletRequestAttributeListener implements ServletRequestAttributeListener {
 
+    public MyServletRequestAttributeListener() {
+        System.out.println("ServletRequestAttributeListener's constructor is called!");
+    }
+
     @Override
     public void attributeAdded(ServletRequestAttributeEvent srae) {
         String name = srae.getName();
         Object attribute = srae.getServletRequest().getAttribute(name);
-        System.out.println("add request attribute, attribute name: " + name + " , attribute value: " + attribute);
+        System.out.println("ServletRequestAttributeListener  -->  add request attribute, attribute name: " + name + " , attribute value: " + attribute);
     }
 
     @Override
     public void attributeRemoved(ServletRequestAttributeEvent srae) {
         String name = srae.getName();
-        System.out.println("remove request attribute, attribute name: " + name);
+        System.out.println("ServletRequestAttributeListener  -->  remove request attribute, attribute name: " + name);
     }
 
 }

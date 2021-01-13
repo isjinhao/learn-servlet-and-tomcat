@@ -1,5 +1,6 @@
 package so.controller;
 
+import java.net.URL;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -18,15 +19,19 @@ public class FileDownloadServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         resp.setContentType("text/html;charset=utf-8");
 
+        URL resource = this.getClass().getClassLoader().getResource("/");
+        System.out.println(resource.getPath());
+
         // filepath
-        String filePath = "./spring.png";
+        String filePath = resource.getPath() + "/spring结构.png";
+        File file = new File(filePath);
 
         try (
                 BufferedInputStream bis = new BufferedInputStream(new FileInputStream(filePath));
                 BufferedOutputStream bos = new BufferedOutputStream(resp.getOutputStream());
         ) {
             long fileLength = new File(filePath).length();
-            resp.setHeader("Content-disposition", "attachment; filename=" + new String(new File(filePath).getName().getBytes("utf-8"), "ISO8859-1"));
+            resp.setHeader("Content-disposition", "attachment; filename=" + new String(file.getName().getBytes("utf-8"), "ISO8859-1"));
             resp.setHeader("Content-Length", String.valueOf(fileLength));
             byte[] buff = new byte[2048];
             int bytesRead;

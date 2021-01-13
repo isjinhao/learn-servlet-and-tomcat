@@ -25,6 +25,7 @@ public class MyReadListener implements ReadListener {
 
     @Override
     public void onDataAvailable() throws IOException {
+        System.out.println("onDataAvailable invoke");
         // 在这里打一个断点，看看Tomcat对请求的处理是不是委托到真正调用的时候
     }
 

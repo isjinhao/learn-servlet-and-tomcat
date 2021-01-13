@@ -2,6 +2,7 @@ package so.controller.classtest;
 
 import javax.servlet.ServletConfig;
 import javax.servlet.ServletException;
+import javax.servlet.annotation.WebInitParam;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -13,7 +14,8 @@ import java.util.Enumeration;
  * @Author ISJINHAO
  * @Date 2021/1/12 10:46
  */
-@WebServlet(name = "servletConfig", urlPatterns = "/test/servletConfig")
+@WebServlet(name = "servletConfig", urlPatterns = "/test/servletConfig",
+    initParams = {@WebInitParam(name = "annotation-init-param", value = "wca")})
 public class ServletConfigServlet extends HttpServlet {
 
     @Override
@@ -23,7 +25,8 @@ public class ServletConfigServlet extends HttpServlet {
         System.out.println(servletConfig.getServletName());
         Enumeration<String> initParameterNames = servletConfig.getInitParameterNames();
         while (initParameterNames.hasMoreElements()) {
-            System.out.println(initParameterNames.nextElement());
+            String name = initParameterNames.nextElement();
+            System.out.println(name + " " + servletConfig.getInitParameter(name));
         }
 
     }
