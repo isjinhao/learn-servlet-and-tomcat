@@ -18,6 +18,7 @@
         <servlet-api-version>4.0.1</servlet-api-version>
         <jackson-version>2.11.4</jackson-version>
         <embed-tomcat-version>9.0.41</embed-tomcat-version>
+        <web-socket-version>1.1</web-socket-version>
     </properties>
 
     <dependencyManagement>
@@ -26,21 +27,6 @@
                 <groupId>org.projectlombok</groupId>
                 <artifactId>lombok</artifactId>
                 <version>${lombok-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-databind</artifactId>
-                <version>${jackson-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-core</artifactId>
-                <version>${jackson-version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.fasterxml.jackson.core</groupId>
-                <artifactId>jackson-annotations</artifactId>
-                <version>${jackson-version}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.tomcat.embed</groupId>
@@ -52,6 +38,12 @@
                 <artifactId>tomcat-embed-jasper</artifactId>
                 <version>${embed-tomcat-version}</version>
             </dependency>
+            <dependency>
+                <groupId>javax.websocket</groupId>
+                <artifactId>javax.websocket-api</artifactId>
+                <version>1.1</version>
+            </dependency>
+
         </dependencies>
     </dependencyManagement>
 

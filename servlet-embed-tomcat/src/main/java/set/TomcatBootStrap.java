@@ -33,8 +33,7 @@ public class TomcatBootStrap {
         Context context = tomcat.addWebapp("/", baseDir);
 
         WebResourceRoot resources = new StandardRoot(context);
-        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
-                                                            baseDir, "/"));
+        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", baseDir, "/"));
         context.setResources(resources);
 
         tomcat.start();

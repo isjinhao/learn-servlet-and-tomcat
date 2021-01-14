@@ -11,7 +11,8 @@ import java.io.IOException;
  * @Author ISJINHAO
  * @Date 2021/1/12 9:42
  */
-@WebServlet(urlPatterns = "/test/servletSecurity")
+// 使用时需要在tomcat-user.xml文件里配置用户信息，微服务开发时没有多大作用
+//@WebServlet(urlPatterns = "/test/servletSecurity")
 @ServletSecurity(
         value = @HttpConstraint(
                 rolesAllowed = {
