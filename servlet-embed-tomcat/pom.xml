@@ -43,12 +43,6 @@
         <resources>
             <resource>
                 <directory>src/main/webapp</directory>
-                <includes>
-                    <include>*/*.xml</include>
-                    <include>*/*.jsp</include>
-                </includes>
-                <excludes>
-                </excludes>
             </resource>
             <resource>
                 <directory>src/main/resources</directory>
