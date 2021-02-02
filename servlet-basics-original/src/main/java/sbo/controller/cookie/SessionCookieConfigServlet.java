@@ -1,4 +1,4 @@
-package sbo.controller.classtest;
+package sbo.controller.cookie;
 
 import javax.servlet.ServletContext;
 import javax.servlet.ServletException;
@@ -13,7 +13,7 @@ import java.io.IOException;
  * @Author ISJINHAO
  * @Date 2021/1/12 13:54
  */
-@WebServlet(urlPatterns = "/test/sessionCookieConfig")
+@WebServlet(urlPatterns = "/sessionCookieConfig")
 public class SessionCookieConfigServlet extends HttpServlet {
 
     @Override

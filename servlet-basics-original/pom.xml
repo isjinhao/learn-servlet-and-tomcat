@@ -10,14 +10,6 @@
     <modelVersion>4.0.0</modelVersion>
     <packaging>war</packaging>
 
-    <artifactId>servlet-original</artifactId>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.apache.tomcat.embed</groupId>
-            <artifactId>tomcat-embed-core</artifactId>
-            <scope>provided</scope>
-        </dependency>
-    </dependencies>
+    <artifactId>servlet-basics-original</artifactId>
 
 </project>

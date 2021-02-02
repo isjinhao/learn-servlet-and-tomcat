@@ -20,6 +20,8 @@ public class WriteCookieServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
         Cookie cookie = new Cookie("testCookie", "aha");
+        cookie.setPath("/cookie");
+        cookie.setDomain(".cookie.test");
         resp.setContentType("application/json;charset=utf-8");
         // 1天
         cookie.setMaxAge(60 * 60 * 24);

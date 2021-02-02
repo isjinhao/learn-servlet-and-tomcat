@@ -5,12 +5,22 @@
          version="4.0">
 
     <context-param>
-        <param-name>context-param-test-1</param-name>
+        <param-name>context-param-test-16</param-name>
         <param-value>aha</param-value>
     </context-param>
     <context-param>
         <param-name>context-param-test-2</param-name>
         <param-value>hengha</param-value>
     </context-param>
+
+    <session-config>
+        <session-timeout>600</session-timeout>
+        <cookie-config>
+            <name>sessionCookieConfig</name>
+            <path>/sessionCookieConfig</path>
+            <max-age>3600</max-age>
+        </cookie-config>
+        <tracking-mode>COOKIE</tracking-mode>
+    </session-config>
 
 </web-app>
