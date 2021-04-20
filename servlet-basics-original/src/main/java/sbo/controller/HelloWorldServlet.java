@@ -24,7 +24,7 @@ public class HelloWorldServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         req.setAttribute("requestTest", "requestValue");
-        req.removeAttribute("");
+        req.removeAttribute("requestTest");
 
         HttpSession session = req.getSession();
         session.setAttribute("sessionTest", "sessionValue");
@@ -36,6 +36,8 @@ public class HelloWorldServlet extends HttpServlet {
 
         ServletOutputStream outputStream = resp.getOutputStream();
         outputStream.write("hello world : servlet-original".getBytes());
+        outputStream.flush();
+        outputStream.close();
 
     }
 

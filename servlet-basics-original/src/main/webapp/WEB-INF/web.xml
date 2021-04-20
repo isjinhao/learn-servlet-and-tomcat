@@ -5,7 +5,7 @@
          version="4.0">
 
     <context-param>
-        <param-name>context-param-test-16</param-name>
+        <param-name>context-param-test-1</param-name>
         <param-value>aha</param-value>
     </context-param>
     <context-param>
@@ -14,11 +14,19 @@
     </context-param>
 
     <session-config>
-        <session-timeout>600</session-timeout>
+        <!-- 毫秒 -->
+        <session-timeout>60</session-timeout>
         <cookie-config>
-            <name>sessionCookieConfig</name>
-            <path>/sessionCookieConfig</path>
-            <max-age>3600</max-age>
+        <!-- 虽然指定了路径，但是访问其他操作过Session的Servlet，Response依然会设置Cookie，
+                但是下一次不访问此Path则不会携带Cookie。 -->
+            <domain>example.org</domain>
+            <path>/servlet_basics_original/helloWorld</path>
+            <comment>
+                test sessionCookieConfig
+            </comment>
+            <http-only>true</http-only>
+            <secure>true</secure>
+            <max-age>1800</max-age>
         </cookie-config>
         <tracking-mode>COOKIE</tracking-mode>
     </session-config>

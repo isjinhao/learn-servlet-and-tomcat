@@ -21,6 +21,8 @@ public class ServletConfigServlet extends HttpServlet {
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
 
+
+
         ServletConfig servletConfig = getServletConfig();
         System.out.println(servletConfig.getServletName());
         Enumeration<String> initParameterNames = servletConfig.getInitParameterNames();

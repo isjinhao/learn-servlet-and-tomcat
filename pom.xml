@@ -12,6 +12,7 @@
         <module>servlet-basics-embed-tomcat</module>
         <module>servlet-advanced</module>
         <module>tomcat-in-spring-boot</module>
+        <module>simple-servlet-jar</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -19,7 +20,7 @@
         <lombok-version>1.18.16</lombok-version>
         <servlet-api-version>4.0.1</servlet-api-version>
         <jackson-version>2.11.4</jackson-version>
-        <embed-tomcat-version>9.0.41</embed-tomcat-version>
+        <embed-tomcat-version>9.0.45</embed-tomcat-version>
         <spring-boot-starter-version>2.4.2</spring-boot-starter-version>
     </properties>
 
@@ -36,17 +37,10 @@
                 <version>${embed-tomcat-version}</version>
             </dependency>
             <dependency>
-                <groupId>org.apache.tomcat.embed</groupId>
-                <artifactId>tomcat-embed-jasper</artifactId>
-                <version>${embed-tomcat-version}</version>
-            </dependency>
-
-            <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter</artifactId>
                 <version>${spring-boot-starter-version}</version>
             </dependency>
-
             <dependency>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-starter-web</artifactId>

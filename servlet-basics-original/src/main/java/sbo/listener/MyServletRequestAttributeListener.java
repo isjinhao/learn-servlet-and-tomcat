@@ -28,4 +28,9 @@ public class MyServletRequestAttributeListener implements ServletRequestAttribut
         System.out.println("ServletRequestAttributeListener  -->  remove request attribute, attribute name: " + name);
     }
 
+    @Override
+    public void attributeReplaced(ServletRequestAttributeEvent srae) {
+
+    }
+
 }

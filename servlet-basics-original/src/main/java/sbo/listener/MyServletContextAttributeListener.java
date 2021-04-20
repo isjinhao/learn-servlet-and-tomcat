@@ -27,4 +27,9 @@ public class MyServletContextAttributeListener implements ServletContextAttribut
         String name = event.getName();
         System.out.println("ServletContextAttributeListener  -->  remove context attribute, attribute name: " + name);
     }
+
+    @Override
+    public void attributeReplaced(ServletContextAttributeEvent event) {
+
+    }
 }

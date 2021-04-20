@@ -15,7 +15,7 @@ public class HelloWorld {
     @RequestMapping("helloworld")
     @ResponseBody
     public String helloWorld() {
-        return "helloworld";
+        return "helloworld 啊";
     }
 
 }

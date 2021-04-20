@@ -28,4 +28,9 @@ public class MyHttpSessionAttributeListener implements HttpSessionAttributeListe
         System.out.println("HttpSessionAttributeListener  -->  remove session attribute, attribute name: " + name);
     }
 
+    @Override
+    public void attributeReplaced(HttpSessionBindingEvent event) {
+
+    }
+
 }
