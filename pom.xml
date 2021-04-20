@@ -13,6 +13,8 @@
         <module>servlet-advanced</module>
         <module>tomcat-in-spring-boot</module>
         <module>simple-servlet-jar</module>
+        <module>websocket-in-tomcat</module>
+        <module>https-connector</module>
     </modules>
     <packaging>pom</packaging>
 
@@ -21,7 +23,7 @@
         <servlet-api-version>4.0.1</servlet-api-version>
         <jackson-version>2.11.4</jackson-version>
         <embed-tomcat-version>9.0.45</embed-tomcat-version>
-        <spring-boot-starter-version>2.4.2</spring-boot-starter-version>
+        <spring-boot-starter-version>2.3.10.RELEASE</spring-boot-starter-version>
     </properties>
 
     <dependencyManagement>
