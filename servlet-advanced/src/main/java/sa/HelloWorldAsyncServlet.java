@@ -1,4 +1,6 @@
-package sa.async;
+package sa;
+
+import sa.listener.AppAsyncListener;
 
 import javax.servlet.AsyncContext;
 import javax.servlet.ServletException;
@@ -30,10 +32,15 @@ public class HelloWorldAsyncServlet extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws IOException {
 
         AsyncContext asyncContext = req.startAsync();
+
+        asyncContext.addListener(new AppAsyncListener());
+
         System.out.println("async helloworld servlet is called");
         executorService.execute(() -> {
             HelloWorldAsyncServlet.sleep();
             try {
+                String name = asyncContext.getRequest().getParameter("name");
+                System.out.println(name);
                 System.out.println("async helloworld servlet output data is called");
                 asyncContext.getResponse().getWriter().write("HelloWorldAsyncServlet");
                 System.out.println("async helloworld servlet output data finished");
@@ -48,7 +55,7 @@ public class HelloWorldAsyncServlet extends HttpServlet {
 
     public static void sleep() {
         try {
-            int millis = ThreadLocalRandom.current().nextInt(10000, 20000);
+            int millis = ThreadLocalRandom.current().nextInt(1000, 2000);
             String currentThread = Thread.currentThread().getName();
             System.out.println(currentThread + " sleep for " + millis + " milliseconds.");
             Thread.sleep(millis);

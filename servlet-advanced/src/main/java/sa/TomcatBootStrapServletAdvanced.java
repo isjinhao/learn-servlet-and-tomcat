@@ -6,6 +6,7 @@ import org.apache.catalina.WebResourceRoot;
 import org.apache.catalina.startup.Tomcat;
 import org.apache.catalina.webresources.DirResourceSet;
 import org.apache.catalina.webresources.StandardRoot;
+import org.apache.tomcat.util.modeler.Registry;
 
 import java.io.File;
 
@@ -13,9 +14,11 @@ import java.io.File;
  * @Author ISJINHAO
  * @Date 2021/1/8 9:39
  */
-public class TomcatBootStrap {
+public class TomcatBootStrapServletAdvanced {
 
     public static void main(String[] args) throws LifecycleException {
+
+        Registry.disableRegistry();
 
         // 获取类加载器的基本路径
         String baseDir = Thread.currentThread().getContextClassLoader().getResource("").getPath();
@@ -24,16 +27,16 @@ public class TomcatBootStrap {
         // 启动 tomcat
         Tomcat tomcat = new Tomcat();
 
-        tomcat.setBaseDir(TomcatBootStrap.createTomcatBaseDir());
+        tomcat.setBaseDir(TomcatBootStrapServletAdvanced.createTomcatBaseDir());
 
         tomcat.setPort(Integer.getInteger("port", 8080));
         tomcat.getConnector();
 
         // 创建 WebApp，contextPath就是url路径前缀
         Context context = tomcat.addWebapp("", baseDir);
-        context.setParentClassLoader(TomcatBootStrap.class.getClassLoader());
+        context.setParentClassLoader(TomcatBootStrapServletAdvanced.class.getClassLoader());
         WebResourceRoot resources = new StandardRoot(context);
-        resources.addPreResources(new DirResourceSet(resources, "/999", baseDir, "/sa/async"));
+        resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes", baseDir, "/"));
         context.setResources(resources);
 
         tomcat.start();

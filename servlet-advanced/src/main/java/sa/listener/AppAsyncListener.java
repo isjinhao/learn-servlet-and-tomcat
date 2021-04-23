@@ -1,4 +1,4 @@
-package sa.async.listener;
+package sa.listener;
 
 import javax.servlet.AsyncEvent;
 import javax.servlet.AsyncListener;
@@ -11,6 +11,7 @@ import java.io.PrintWriter;
  * @Date 2021/1/12 15:07
  */
 public class AppAsyncListener implements AsyncListener {
+
     @Override
     public void onComplete(AsyncEvent asyncEvent) throws IOException {
         System.out.println("AppAsyncListener onComplete");
