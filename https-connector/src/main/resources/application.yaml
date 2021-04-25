@@ -1,14 +1,8 @@
-#server:
-#  servlet:
-#    encoding:
-#      charset: iso-8859-1
-
-
 server:
-  port: 8848
+  port: 8080
   ssl:
     key-store: classpath:server.private
-    # JKS 需要两个密码，PKCS12只需要key-store-password
+    # JKS 需要两个密码，P12只需要key-store-password
     key-store-password: serverstorepw
     key-password: serverkeypw
     key-store-type: JKS
