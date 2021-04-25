@@ -25,6 +25,12 @@ public class TomcatBootStrapWithoutDefaultConfig {
         Tomcat tomcat = new Tomcat();
         tomcat.setBaseDir(createTomcatBaseDir());
 
+        /**
+         * 默认的Servlet有两个，一个是 DefaultServlet，用于处理静态页面；
+         * 一个是 JspServlet，用于处理JSP页面。
+         * 不要加入默认的 Servlet，因为默认的 Servlet 会包含JSP相关的 Servlet。
+         * 而对于DefaultServlet，Springboot并没有采用这个方式来提供静态页面服务，而是基于DispatchServlet进行了自己的url Mapping
+         */
         tomcat.setAddDefaultWebXmlToWebapp(false);
 
         tomcat.setPort(Integer.getInteger("port", 8080));
@@ -35,9 +41,12 @@ public class TomcatBootStrapWithoutDefaultConfig {
 
         context.setParentClassLoader(TomcatBootStrapWithoutDefaultConfig.class.getClassLoader());
         WebResourceRoot resources = new StandardRoot(context);
+
+        // 将baseDir里的东西安装到某个目录里面，必须是在/WEB-INF/classes下面
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/classes",
                 "D:/develop/workspace/study/learn-servlet-and-tomcat/servlet-basics-embed-tomcat/target/classes", "/sbet"));
 
+        // 将baseDir里的东西安装到某个目录里面，必须是在/WEB-INF/classes下面
         resources.addPreResources(new DirResourceSet(resources, "/WEB-INF/lib",
                 "D:\\develop\\workspace\\study\\learn-servlet-and-tomcat\\simple-servlet-jar", "/target"));
 
